@@ -1,15 +1,19 @@
-import React, { Component } from 'react'
-import TodoItems from './TodoItems';
+import React from "react";
+import TodoItems from "./TodoItems";
 
-class Todo extends Component {
-    render() {
-        return this.props.todo.map(todo => {
-            return <TodoItems key={todo.id} 
-                todo={todo} 
-                markComplete={this.props.markComplete}
-                removeId={this.props.removeId} />
-        });
-    }
-}
+const Todo = ({ todo, markComplete, removeId }) => {
+  return (
+    <>
+      {todo.map((t) => (
+        <TodoItems
+          key={t.id}
+          todo={t}
+          markComplete={markComplete}
+          removeId={removeId}
+        />
+      ))}
+    </>
+  );
+};
 
 export default Todo;
